@@ -65,6 +65,10 @@ local function get_process(tab)
 			{ Foreground = { Color = colors.ansi[red] } },
 			{ Text = wezterm.nerdfonts.fa_cloud_download },
 		},
+		["bluetoothctl"] = {
+			{ Foreground = { Color = colors.ansi[blue] } },
+			{ Text = wezterm.nerdfonts.fa_bluetooth },
+		},
 	}
 
 	local process_name = string.gsub(tab.active_pane.foreground_process_name, "(.*[/\\])(.*)", "%2")
