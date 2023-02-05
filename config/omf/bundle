@@ -1,0 +1,8 @@
+package fzf
+package jump
+package sudope
+package thefuck
+theme boxfish
+theme default
+theme gitstatus
+theme simplevi
