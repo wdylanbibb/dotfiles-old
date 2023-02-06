@@ -13,9 +13,10 @@
       recursive: true
 
 - link:
-    ~/.gitconfig:
-      path: gitconfig
-    ~/.config/:
+    ~/.gitconfig: gitconfig
+    ~/.config/: 
+      create: true
+      glob: true
       path: config/*
 
 - shell:
