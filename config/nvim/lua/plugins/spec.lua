@@ -182,15 +182,13 @@ return {
   {
     "akinsho/toggleterm.nvim",
     event = "VeryLazy",
-    config = function()
-      require("toggleterm").setup({
-        open_mapping = [[<c-\>]],
-        direction = "float",
-        float_opts = {
-          border = "curved",
-        },
-      })
-    end,
+    opts = {
+      open_mapping = [[<c-\>]],
+      direction = "float",
+      float_opts = {
+        border = "curved",
+      },
+    },
   },
 
   {
@@ -204,9 +202,6 @@ return {
   {
     "norcalli/nvim-colorizer.lua",
     event = "VeryLazy",
-    config = function()
-      require("colorizer").setup()
-    end,
   },
 
   {
