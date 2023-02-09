@@ -20,7 +20,7 @@
       path: config/*
 
 - shell:
-  - [yay -S neovim-git fish-git wezterm-git nerd-fonts-git npm, Installing necessary packages]
+  - [yay -S neovim-git fish-git wezterm-git nerd-fonts-git npm awesome-git picom-jonaburg-git rofi, Installing necessary packages]
   - [chsh -s $(which fish), Making fish the default shell]
   - [curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install, Installing Oh My Fish]
   - [curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher, Installing Fisher]
