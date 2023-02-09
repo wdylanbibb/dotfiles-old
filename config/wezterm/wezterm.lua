@@ -109,28 +109,39 @@ end)
 
 return {
 	color_scheme = "GruvboxDark",
-	font = wezterm.font("FiraCode Nerd Font"),
-	font_size = 12,
+	font = wezterm.font("cozette"),
+	font_size = 7,
 	font_rules = {
 		{
 			italic = true,
-			intensity = "Normal",
 			font = wezterm.font({
-				family = "VictorMono Nerd Font",
-				weight = "Regular",
-				style = "Italic",
-			}),
-		},
-		{
-			italic = true,
-			intensity = "Bold",
-			font = wezterm.font({
-				family = "VictorMono Nerd Font",
-				weight = "Bold",
+				family = "scientifica",
 				style = "Italic",
 			}),
 		},
 	},
+	-- font = wezterm.font("FiraCode Nerd Font"),
+	-- font_size = 12,
+	-- font_rules = {
+	-- 	{
+	-- 		italic = true,
+	-- 		intensity = "Normal",
+	-- 		font = wezterm.font({
+	-- 			family = "VictorMono Nerd Font",
+	-- 			weight = "Regular",
+	-- 			style = "Italic",
+	-- 		}),
+	-- 	},
+	-- 	{
+	-- 		italic = true,
+	-- 		intensity = "Bold",
+	-- 		font = wezterm.font({
+	-- 			family = "VictorMono Nerd Font",
+	-- 			weight = "Bold",
+	-- 			style = "Italic",
+	-- 		}),
+	-- 	},
+	-- },
 	window_background_opacity = 0.9,
 	-- background = {
 	-- 	{
