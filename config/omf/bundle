@@ -1,8 +1,10 @@
+package archlinux
 package fzf
 package jump
 package sudope
 package thefuck
 theme boxfish
+theme cmorrell
 theme default
 theme gitstatus
 theme simplevi
