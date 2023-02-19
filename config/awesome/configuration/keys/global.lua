@@ -1,5 +1,6 @@
 local awful = require("awful")
 local gears = require("gears")
+local naughty = require("naughty")
 local menubar = require("menubar")
 
 require("awful.autofocus")
@@ -9,6 +10,8 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local modkey = require("configuration.keys.mod").modKey
 local altkey = require("configuration.keys.mod").altKey
 local apps = require("configuration.apps")
+
+local lain = require("lain")
 
 -- {{{ Key bindings
 globalKeys = gears.table.join(
@@ -43,12 +46,49 @@ globalKeys = gears.table.join(
 
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
 
+	-- awful.key({ modkey }, "j", function() awful.client.focus.byidx(1)
+	-- end, { description = "focus next by index", group = "client" }),
+	-- awful.key({ modkey }, "k", function()
+	-- 	awful.client.focus.byidx(-1)
+	-- end, { description = "focus previous by index", group = "client" }),
+
 	awful.key({ modkey }, "j", function()
-		awful.client.focus.byidx(1)
-	end, { description = "focus next by index", group = "client" }),
+		if awful.screen.focused().selected_tag.layout == awful.layout.suit.floating then
+			awful.client.focus.byidx(1)
+		else
+			awful.client.focus.global_bydirection("down")
+			if client.focus then
+				client.focus:raise()
+			end
+		end
+	end),
 	awful.key({ modkey }, "k", function()
-		awful.client.focus.byidx(-1)
-	end, { description = "focus previous by index", group = "client" }),
+		if awful.screen.focused().selected_tag.layout == awful.layout.suit.floating then
+			awful.client.focus.byidx(-1)
+		else
+			awful.client.focus.global_bydirection("up")
+			if client.focus then
+				client.focus:raise()
+			end
+		end
+	end),
+	awful.key({ modkey }, "h", function()
+		if awful.screen.focused().selected_tag.layout ~= awful.layout.suit.floating then
+			awful.client.focus.global_bydirection("left")
+			if client.focus then
+				client.focus:raise()
+			end
+		end
+	end),
+	awful.key({ modkey }, "l", function()
+		if awful.screen.focused().selected_tag.layout ~= awful.layout.suit.floating then
+			awful.client.focus.global_bydirection("right")
+			if client.focus then
+				client.focus:raise()
+			end
+		end
+	end),
+
 	awful.key({ modkey }, "w", function()
 		mymainmenu:show()
 	end, { description = "show main menu", group = "awesome" }),
@@ -81,10 +121,10 @@ globalKeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 	awful.key({ modkey, "Shift" }, "e", awesome.quit, { description = "quit awesome", group = "awesome" }),
 
-	awful.key({ modkey }, "l", function()
+	awful.key({ modkey, "Control" }, "l", function()
 		awful.tag.incmwfact(0.05)
 	end, { description = "increase master width factor", group = "layout" }),
-	awful.key({ modkey }, "h", function()
+	awful.key({ modkey, "Control" }, "h", function()
 		awful.tag.incmwfact(-0.05)
 	end, { description = "decrease master width factor", group = "layout" }),
 	awful.key({ modkey, "Shift" }, "h", function()

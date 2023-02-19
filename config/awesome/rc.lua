@@ -18,12 +18,14 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
+local lain = require("lain")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "gruvbox/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "catppuccin-macchiato/theme.lua")
 
 -- Init all modules (You can add/remove active modules here)
 require("modules.auto-start")
@@ -37,7 +39,8 @@ require("ui")
 require("configuration.tags")
 require("configuration.client")
 require("configuration.init")
-_G.root.keys(require("configuration.keys.global"))
+-- _G.root.keys(require("configuration.keys.global"))
+root.keys(gears.table.join(root.keys(), require("configuration.keys.global")))
 _G.root.buttons(require("configuration.mouse.desktop"))
 
 -- {{{ Error handling

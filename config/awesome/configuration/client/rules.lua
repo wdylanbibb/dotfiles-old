@@ -24,39 +24,55 @@ awful.rules.rules = {
 	},
 
 	-- Add titlebars to normal clients
-	{ rule_any = { type = { "normal" } }, properties = { titlebars_enabled = true } },
-
-	-- Have awesome work better with KDE
 	{
-		rule_any = { type = { "dialog" }, class = { "kscreen_osd_service" } },
-		properties = {
-			titlebars_enabled = false,
-			floating = true,
-			placement = awful.placement.no_offscreen + awful.placement.restore,
-			border_width = 0,
-			-- Move popup to current tag (goes to tag 1 otherwise)
-			callback = function(c)
-				c:move_to_tag(awful.screen.focused().selected_tag)
-			end,
+		rule_any = {
+			type = {
+				"normal",
+			},
 		},
+		-- properties = {
+		-- 	titlebars_enabled = true,
+		-- },
+		callback = function(c)
+			if awful.screen.focused().selected_tag.layout == awful.layout.suit.floating then
+				awful.titlebar.show(c)
+			else
+				awful.titlebar.hide(c)
+			end
+		end,
 	},
+
+	-- -- Have awesome work better with KDE
+	-- {
+	-- 	rule_any = { type = { "dialog" }, class = { "kscreen_osd_service" } },
+	-- 	properties = {
+	-- 		titlebars_enabled = false,
+	-- 		floating = true,
+	-- 		placement = awful.placement.no_offscreen + awful.placement.restore,
+	-- 		border_width = 0,
+	-- 		-- Move popup to current tag (goes to tag 1 otherwise)
+	-- 		callback = function(c)
+	-- 			c:move_to_tag(awful.screen.focused().selected_tag)
+	-- 		end,
+	-- 	},
+	-- },
+	--
+	-- -- Hacky way to have KDE Panel act normally with dynamic titlebars
+	-- {
+	-- 	rule = { type = "dock" },
+	-- 	properties = {
+	-- 		sticky = true,
+	-- 		border_width = 0,
+	-- 		titlebars_enabled = true,
+	-- 		callback = function(c)
+	-- 			awful.titlebar.hide(c)
+	-- 		end,
+	-- 	},
+	-- },
 
 	{
 		rule = { type = "desktop" },
 		properties = { sticky = true, border_width = 0, maximized = true, titlebars_enabled = false },
-	},
-
-	-- Hacky way to have KDE Panel act normally with dynamic titlebars
-	{
-		rule = { type = "dock" },
-		properties = {
-			sticky = true,
-			border_width = 0,
-			titlebars_enabled = true,
-			callback = function(c)
-				awful.titlebar.hide(c)
-			end,
-		},
 	},
 
 	{

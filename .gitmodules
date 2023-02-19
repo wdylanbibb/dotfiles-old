@@ -2,3 +2,9 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "config/awesome/lain"]
+	path = config/awesome/lain
+	url = https://github.com/lcpz/lain.git
+[submodule "fishingline"]
+	path = fishingline
+	url = https://github.com/wdylanbibb/fishingline.git

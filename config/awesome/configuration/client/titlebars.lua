@@ -17,14 +17,7 @@ function double_click_event_handler(double_click_event)
 end
 
 client.connect_signal("property::floating", function(c)
-	if
-		c.floating
-		and not (
-			c.requests_no_titlebar
-			or c.fullscreen
-			or string.find(awful.titlebar.widget.titlewidget(c).text, "Plasma")
-		)
-	then
+	if c.floating and not (c.requests_no_titlebar or c.fullscreen) then
 		awful.titlebar.show(c)
 	else
 		awful.titlebar.hide(c)
@@ -35,16 +28,16 @@ awful.tag.attached_connect_signal(nil, "property::layout", function(t)
 	-- local float = t.layout == awful.layout.suit.floating
 	local float = t.layout == awful.layout.suit.floating
 	for _, c in pairs(t:clients()) do
-		-- if float and not (c.requests_no_titlebar or c.fullscreen) then
-		-- 	awful.titlebar.show(c)
-		-- else
-		-- 	awful.titlebar.hide(c)
-		-- end
-		if float and not (c.requests_no_titlebar or c.fullscreen or c.class == "plasmashell") then
+		if float and not (c.requests_no_titlebar or c.fullscreen) then
 			awful.titlebar.show(c)
 		else
 			awful.titlebar.hide(c)
 		end
+		-- if float and not (c.requests_no_titlebar or c.fullscreen or c.class == "plasmashell") then
+		-- 	awful.titlebar.show(c)
+		-- else
+		-- 	awful.titlebar.hide(c)
+		-- end
 	end
 end)
 
@@ -70,6 +63,9 @@ client.connect_signal("request::titlebars", function(c)
 			-- WILL EXECUTE THIS ON DOUBLE CLICK
 			if double_click_event_handler() then
 				c.maximized = not c.maximized
+				if not c.maximized then
+					awful.titlebar.show(c)
+				end
 				c:raise()
 			else
 				awful.mouse.client.move(c)
