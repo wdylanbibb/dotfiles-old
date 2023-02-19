@@ -8,3 +8,6 @@
 [submodule "config/omf/themes/fishingline"]
 	path = config/omf/themes/fishingline
 	url = https://github.com/wdylanbibb/fishingline.git
+[submodule "config/awesome/bling"]
+	path = config/awesome/bling
+	url = https://github.com/BlingCorp/bling.git

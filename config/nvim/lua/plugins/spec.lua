@@ -1,13 +1,26 @@
 return {
   {
-    "ellisonleao/gruvbox.nvim",
+    -- "ellisonleao/gruvbox.nvim",
+    "navarasu/onedark.nvim",
+    opts = {
+      transparent = true,
+      code_style = {
+        strings = "italic",
+      },
+      lualine = {
+        transparent = true,
+      },
+      colors = {
+        cyan = "#70BAC4",
+      },
+    },
   },
 
   -- Change default LazyVim config
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "catppuccin-macchiato",
     },
   },
 

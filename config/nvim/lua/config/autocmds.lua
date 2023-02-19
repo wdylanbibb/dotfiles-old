@@ -15,9 +15,9 @@ local userColors = api.nvim_create_augroup("UserColors", { clear = true })
 api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
-    cmd("highlight Normal ctermbg=NONE guibg=NONE")
-    cmd("highlight NormalNC ctermbg=NONE guibg=NONE")
-    cmd("highlight NotifyBackground ctermbg=250 guibg=#24273a")
+    -- cmd("highlight Normal ctermbg=NONE guibg=NONE")
+    -- cmd("highlight NormalNC ctermbg=NONE guibg=NONE")
+    cmd("highlight NotifyBackground ctermbg=250 guibg=#282c34")
   end,
   group = userColors,
 })
