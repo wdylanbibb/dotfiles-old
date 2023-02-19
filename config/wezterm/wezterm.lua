@@ -29,7 +29,9 @@ wezterm.on("ActivatePaneDirection-down", function(window, pane)
 	conditional_activate_pane(window, pane, "Down", "j")
 end)
 
-local colors = wezterm.color.get_builtin_schemes()["GruvboxDark"]
+local color_scheme = "Catppuccin Macchiato" -- "OneDark (base16)"
+
+local colors = wezterm.color.get_builtin_schemes()[color_scheme]
 local white = 1
 local red = 2
 local green = 3
@@ -107,41 +109,45 @@ wezterm.on("update-right-status", function(window, pane)
 	}))
 end)
 
+wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
+	return "Wezterm"
+end)
+
 return {
-	color_scheme = "GruvboxDark",
-	font = wezterm.font("cozette"),
-	font_size = 7,
-	font_rules = {
-		{
-			italic = true,
-			font = wezterm.font({
-				family = "scientifica",
-				style = "Italic",
-			}),
-		},
-	},
-	-- font = wezterm.font("FiraCode Nerd Font"),
-	-- font_size = 12,
+	color_scheme = color_scheme,
+	-- font = wezterm.font("cozette"),
+	-- font_size = 7,
 	-- font_rules = {
 	-- 	{
 	-- 		italic = true,
-	-- 		intensity = "Normal",
 	-- 		font = wezterm.font({
-	-- 			family = "VictorMono Nerd Font",
-	-- 			weight = "Regular",
-	-- 			style = "Italic",
-	-- 		}),
-	-- 	},
-	-- 	{
-	-- 		italic = true,
-	-- 		intensity = "Bold",
-	-- 		font = wezterm.font({
-	-- 			family = "VictorMono Nerd Font",
-	-- 			weight = "Bold",
+	-- 			family = "scientifica",
 	-- 			style = "Italic",
 	-- 		}),
 	-- 	},
 	-- },
+	font = wezterm.font("FiraCode Nerd Font"),
+	font_size = 10,
+	font_rules = {
+		{
+			italic = true,
+			intensity = "Normal",
+			font = wezterm.font({
+				family = "VictorMono Nerd Font",
+				weight = "Medium",
+				style = "Italic",
+			}),
+		},
+		{
+			italic = true,
+			intensity = "Bold",
+			font = wezterm.font({
+				family = "VictorMono Nerd Font",
+				weight = "Bold",
+				style = "Italic",
+			}),
+		},
+	},
 	window_background_opacity = 0.9,
 	-- background = {
 	-- 	{
@@ -210,6 +216,7 @@ return {
 	pane_focus_follows_mouse = true,
 	colors = {
 		tab_bar = {
+			background = colors.background,
 			active_tab = {
 				bg_color = "none",
 				fg_color = colors.ansi[black],
