@@ -97,8 +97,20 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		{ Text = get_process(tab) },
 		{ Text = " " },
 		{ Text = get_current_working_dir(tab) },
-		{ Foreground = { Color = colors.background } },
-		{ Text = "  ▕" },
+		{ Text = "  " },
+		-- { Foreground = { Color = colors.background } },
+		-- { Text = "▕" },
+		-- 
+		{
+			Text = (tab.is_active or (tab.tab_index + 1 ~= #tabs and tabs[tab.tab_index + 2].is_active)) and ""
+				or "",
+		},
+		{ Foreground = { Color = tab.is_active and colors.background or colors.cursor_fg } },
+		{ Background = { Color = tab.is_active and colors.cursor_fg or colors.background } },
+		{
+			Text = (tab.is_active or (tab.tab_index + 1 ~= #tabs and tabs[tab.tab_index + 2].is_active)) and ""
+				or "",
+		},
 	})
 end)
 
@@ -126,15 +138,16 @@ return {
 	-- 		}),
 	-- 	},
 	-- },
-	font = wezterm.font("FiraCode Nerd Font"),
-	font_size = 10,
+	-- font = wezterm.font("FiraCode Nerd Font"),
+	font = wezterm.font("Caskaydia Cove Nerd Font"),
+	font_size = 11,
 	font_rules = {
 		{
 			italic = true,
 			intensity = "Normal",
 			font = wezterm.font({
 				family = "VictorMono Nerd Font",
-				weight = "Medium",
+				weight = "DemiBold",
 				style = "Italic",
 			}),
 		},
@@ -148,7 +161,7 @@ return {
 			}),
 		},
 	},
-	window_background_opacity = 0.9,
+	window_background_opacity = 0.5,
 	-- background = {
 	-- 	{
 	-- 		source = { File = "/home/wdbibb/.config/wezterm/images/waves.png" },
@@ -218,7 +231,7 @@ return {
 		tab_bar = {
 			background = colors.background,
 			active_tab = {
-				bg_color = "none",
+				bg_color = colors.background,
 				fg_color = colors.ansi[black],
 				intensity = "Bold",
 				underline = "None",
