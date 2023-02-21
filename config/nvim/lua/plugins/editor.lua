@@ -1,7 +1,6 @@
 return {
   {
     "akinsho/toggleterm.nvim",
-    event = "VeryLazy",
     opts = {
       open_mapping = [[<c-\>]],
       direction = "float",
@@ -9,22 +8,27 @@ return {
         border = "curved",
       },
     },
+    cmd = { "ToggleTerm" },
+    keys = { [[<c-\>]] },
   },
 
-  -- easy insert mode escaping with 'jk' or 'jj'
+  {
+    "sindrets/diffview.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    cmd = { "DiffviewOpen" },
+  },
+
   {
     "max397574/better-escape.nvim",
     event = "VeryLazy",
-    config = function()
-      require("better_escape").setup()
-    end,
+    config = true,
   },
 
   {
     "karb94/neoscroll.nvim",
     event = "VeryLazy",
-    config = function()
-      require("neoscroll").setup()
-    end,
+    config = true,
   },
 }
