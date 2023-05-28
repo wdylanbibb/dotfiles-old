@@ -3,3 +3,26 @@
 [user]
 	email = wdylanbibb@gmail.com
 	name = wdylanbibb
+[safe]
+	directory = /mnt/Data/Rust/cowsay-bot
+	directory = /mnt/Data/Rust/weedtime-bot
+	directory = /mnt/Data/Rust/music-bot
+	directory = /home/wdbibb/dev/rust/wgpu_voxel_game
+	directory = /mnt/Data/Rust/wgpu_voxel_game
+
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  light = false
+  side-by-side = true
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default

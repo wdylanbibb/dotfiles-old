@@ -80,6 +80,15 @@ awful.rules.rules = {
 		properties = { sticky = true, border_width = 0 },
 	},
 
+	{
+		rule = { class = "mullvad vpn" },
+		properties = {
+			titlebars_enabled = false,
+			floating = true,
+			placement = awful.placement.no_offscreen + awful.placement.restore,
+		},
+	},
+
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	-- { rule = { class = "Firefox" },
 	--   properties = { screen = 1, tag = "2" } },

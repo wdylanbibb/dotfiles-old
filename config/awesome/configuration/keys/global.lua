@@ -12,6 +12,7 @@ local altkey = require("configuration.keys.mod").altKey
 local apps = require("configuration.apps")
 
 local lain = require("lain")
+local bling = require("bling")
 
 -- {{{ Key bindings
 globalKeys = gears.table.join(
@@ -53,7 +54,11 @@ globalKeys = gears.table.join(
 	-- end, { description = "focus previous by index", group = "client" }),
 
 	awful.key({ modkey }, "j", function()
-		if awful.screen.focused().selected_tag.layout == awful.layout.suit.floating then
+		if
+			awful.screen.focused().selected_tag.layout == awful.layout.suit.floating
+			or awful.screen.focused().selected_tag.layout == awful.layout.maximixed
+			or awful.screen.focused().selected_tag.layout == bling.layout.mstab
+		then
 			awful.client.focus.byidx(1)
 		else
 			awful.client.focus.global_bydirection("down")
@@ -63,7 +68,11 @@ globalKeys = gears.table.join(
 		end
 	end),
 	awful.key({ modkey }, "k", function()
-		if awful.screen.focused().selected_tag.layout == awful.layout.suit.floating then
+		if
+			awful.screen.focused().selected_tag.layout == awful.layout.suit.floating
+			or awful.screen.focused().selected_tag.layout == awful.layout.maximixed
+			or awful.screen.focused().selected_tag.layout == bling.layout.mstab
+		then
 			awful.client.focus.byidx(-1)
 		else
 			awful.client.focus.global_bydirection("up")
@@ -73,7 +82,11 @@ globalKeys = gears.table.join(
 		end
 	end),
 	awful.key({ modkey }, "h", function()
-		if awful.screen.focused().selected_tag.layout ~= awful.layout.suit.floating then
+		if
+			awful.screen.focused().selected_tag.layout ~= awful.layout.suit.floating
+			or awful.screen.focused().selected_tag.layout ~= awful.layout.maximixed
+			or awful.screen.focused().selected_tag.layout ~= bling.layout.mstab
+		then
 			awful.client.focus.global_bydirection("left")
 			if client.focus then
 				client.focus:raise()
@@ -81,7 +94,11 @@ globalKeys = gears.table.join(
 		end
 	end),
 	awful.key({ modkey }, "l", function()
-		if awful.screen.focused().selected_tag.layout ~= awful.layout.suit.floating then
+		if
+			awful.screen.focused().selected_tag.layout ~= awful.layout.suit.floating
+			or awful.screen.focused().selected_tag.layout ~= awful.layout.maximixed
+			or awful.screen.focused().selected_tag.layout ~= bling.layout.mstab
+		then
 			awful.client.focus.global_bydirection("right")
 			if client.focus then
 				client.focus:raise()

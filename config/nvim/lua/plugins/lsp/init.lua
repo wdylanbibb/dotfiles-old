@@ -26,4 +26,18 @@ return {
     "nickeb96/fish.vim",
     ft = "fish",
   },
+
+  {
+    "saecki/crates.nvim",
+    event = "BufRead Cargo.toml",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("crates").setup({
+        null_ls = {
+          enabled = true,
+          name = "Crates",
+        },
+      })
+    end,
+  },
 }

@@ -29,7 +29,7 @@ wezterm.on("ActivatePaneDirection-down", function(window, pane)
 	conditional_activate_pane(window, pane, "Down", "j")
 end)
 
-local color_scheme = "Catppuccin Macchiato" -- "OneDark (base16)"
+local color_scheme = "OneDark (base16)" -- "OneDark (base16)"
 
 local colors = wezterm.color.get_builtin_schemes()[color_scheme]
 local white = 1
@@ -140,7 +140,7 @@ return {
 	-- },
 	-- font = wezterm.font("FiraCode Nerd Font"),
 	font = wezterm.font("Caskaydia Cove Nerd Font"),
-	font_size = 11,
+	font_size = 16,
 	font_rules = {
 		{
 			italic = true,
@@ -162,6 +162,7 @@ return {
 		},
 	},
 	window_background_opacity = 0.5,
+	-- window_background_opacity = 1.0,
 	-- background = {
 	-- 	{
 	-- 		source = { File = "/home/wdbibb/.config/wezterm/images/waves.png" },
@@ -172,10 +173,11 @@ return {
 	-- },
 	use_fancy_tab_bar = false,
 	tab_bar_at_bottom = true,
+	-- enable_tab_bar = false,
 	tab_max_width = 50,
 	window_padding = {
-		left = "1cell",
-		right = "1cell",
+		left = "0cell",
+		right = "0cell",
 		top = "0cell",
 		bottom = "0cell",
 	},

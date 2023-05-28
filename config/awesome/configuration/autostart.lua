@@ -5,7 +5,7 @@ local filesystem = require("gears.filesystem")
 return {
 	run_on_start_up = {
 
-		"picom --config " .. filesystem.get_configuration_dir() .. "configuration/picom.conf",
+		-- "picom --config " .. filesystem.get_configuration_dir() .. "configuration/picom.conf",
 		-- 'nm-applet --indicator', -- wifi
 		--'blueberry-tray', -- Bluetooth tray icon
 		--'xfce4-power-manager', -- Power manager
@@ -15,6 +15,7 @@ return {
 		--'/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
 		-- '/usr/libexec/polkit-gnome-authentication-agent-1', -- credential manager - path for void linux
 		-- 'blueman-tray', -- bluetooth tray
+		-- "xmodmap ~/.Xmodmap",
 
 		-- Add applications that need to be killed between reloads
 		-- to avoid multipled instances, inside the awspawn script

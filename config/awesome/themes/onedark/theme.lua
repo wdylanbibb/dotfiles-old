@@ -15,7 +15,7 @@ local config_dir = gfs.get_configuration_dir()
 local theme = dofile(themes_path .. "default/theme.lua")
 -- load vector assets' generators for this theme
 
-theme.font = "FiraCode Nerd Font 8"
+theme.font = "Caskaydia Cove Nerd Font 8"
 
 theme.bg_normal = "#282828"
 theme.bg_focus = "#458588"
@@ -28,7 +28,7 @@ theme.fg_focus = theme.fg_normal
 theme.fg_urgent = theme.fg_normal
 theme.fg_minimize = theme.fg_normal
 
-theme.useless_gap = dpi(2)
+theme.useless_gap = dpi(0)
 theme.border_normal = "#282828"
 theme.border_focus = "#458588"
 
@@ -37,7 +37,7 @@ theme.taglist_fg_empty = "#928374"
 theme.taglist_squares_sel = nil
 theme.taglist_squares_unsel = nil
 
-theme.wallpaper = themes_path .. "gruvbox/background.png"
+theme.wallpaper = themes_path .. "onedark/background.png"
 
 theme.lain_icons = config_dir .. "/lain/icons/layout/default/"
 
